@@ -21,16 +21,18 @@ class mongodb {
     }
 
 	file { "/etc/apt/sources.list.d/mongodb.list":
-    	source  => "puppet:///modules/mongodb/mongodb.list",
-        owner   => "root",
-        group   => "root",
-		before  => Exec["apt-get update"], 
+    	source => "puppet:///modules/mongodb/mongodb.list",
+        owner  => "root",
+        group  => "root",
+		notify => Exec["apt-get update"], 
+		before => Exec["apt-get update"], 
 	}
 	
 	#Apt key for MongoDB
     apt::key { "7F0CEB10":
         keyid  => "7F0CEB10",
         ensure => present,
+		notify => Exec["apt-get update"], 
 		before => Exec["apt-get update"], 
     }
 }

@@ -25,12 +25,14 @@ class jenkins {
         owner   => "root",
         group   => "root",
 		notify  => Exec["apt-get update"], 
+		before  => Exec["apt-get update"], 
 	}
 	
 	#Apt key for Jenkins
     apt::key { "D50582E6":
         keyid  => "D50582E6",
         ensure => present,
-		before => Exec["apt-get update"], 
+		notify  => Exec["apt-get update"], 
+		before  => Exec["apt-get update"], 
     }
 }
