@@ -1,0 +1,4 @@
+[Jenkins]
+title=Jenkins CI server
+description=Jenkins CI server
+ports=8080/tcp

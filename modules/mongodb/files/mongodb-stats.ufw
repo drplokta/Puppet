@@ -1,0 +1,4 @@
+[MongoDB Stats]
+title=MongoDB database server stats
+description=MongoDB database server stats
+ports=28017:28019/tcp

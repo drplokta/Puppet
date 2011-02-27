@@ -1,0 +1,4 @@
+[MongoDB Server]
+title=MongoDB database server
+description=MongoDB database server
+ports=27017:27019/tcp
