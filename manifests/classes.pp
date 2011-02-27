@@ -16,6 +16,7 @@ class webserver {
     include php5
     include beanstalkd
     include memcached
+    include jenkins
 }
 
 class mongodbserver {

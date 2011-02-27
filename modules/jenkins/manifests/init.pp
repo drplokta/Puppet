@@ -1,4 +1,6 @@
 class jenkins {
+    Package { require => File["/etc/pear/pear.conf"] }
+    
 	include apt
 	include ufw
 	
@@ -6,6 +8,46 @@ class jenkins {
         ensure  => installed,
     }
     
+    package { "PHP_Depend":
+        ensure   => installed,
+        provider => pear,
+        source   => "pear.pdepend.org/PHP_Depend",
+    }
+    
+    package { "PHP_PMD":
+        ensure   => installed,
+        provider => pear,
+        source   => "pear.phpmd.org/PHP_PMD",
+    }
+    
+    package { "phpcpd":
+        ensure   => installed,
+        provider => pear,
+        source   => "pear.phpunit.de/phpcpd",
+    }    
+    
+    package { "phploc":
+        ensure   => installed,
+        provider => pear,
+        source   => "pear.phpunit.de/phploc",
+    }    
+    
+    package { "PhpDocumentor":
+        ensure   => installed,
+        provider => pear,
+    }    
+    
+    package { "PHP_CodeSniffer":
+        ensure   => installed,
+        provider => pear,
+    }    
+    
+    file { "/etc/pear/pear.conf":
+        source => "puppet:///modules/jenkins/pear.conf",
+        owner  => "root",
+        group  => "root",
+    }
+
     file { "/etc/ufw/applications.d/jenkins":
         source  => "puppet:///modules/jenkins/jenkins.ufw",
 		require => Package["ufw"],
