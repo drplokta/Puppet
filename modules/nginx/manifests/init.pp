@@ -25,7 +25,7 @@ class nginx {
     }
     
     file { "/etc/ufw/applications.d/nginx-server":
-        source => "puppet:///modules/netatalk/nginx-server.ufw",
+        source => "puppet:///modules/nginx/nginx-server.ufw",
 		require => Package["ufw"],
         owner  => "root",
         group  => "root",
