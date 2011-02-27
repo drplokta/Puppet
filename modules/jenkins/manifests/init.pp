@@ -20,6 +20,23 @@ class jenkins {
         source   => "pear.phpmd.org/PHP_PMD",
     }
     
+    package { "php5-curl":
+        ensure => installed,
+    }
+
+    package { "XML_RPC2":
+        ensure   => installed,
+        provider => pear,
+        require  => Package["php5-curl"],
+    }    
+    
+    package { "PHPUnit":
+        ensure   => installed,
+        provider => pear,
+        source   => "pear.phpunit.de/PHPUnit",
+        require  => Package["XML_RPC2"],
+    }    
+    
     package { "phpcpd":
         ensure   => installed,
         provider => pear,

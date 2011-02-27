@@ -1,3 +1,5 @@
 ssl/
 .AppleDouble/
 .AppleDB/
+.AppleDesktop/
+.DS_Store

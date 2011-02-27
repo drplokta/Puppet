@@ -13,7 +13,7 @@ server {
 keepalive_timeout    70;
 
 location / {
-    root   /home/mikes/Building-a-Scalable-Web-Application/forum;
+    root   /home/mikes/webapp;
     index  index.html index.htm index.php;
     allow all;
     }
@@ -22,7 +22,7 @@ location / {
         include /etc/nginx/fastcgi_params;
         fastcgi_pass  127.0.0.1:9000;
         fastcgi_index index.php;
-        fastcgi_param  SCRIPT_FILENAME  /home/mikes/Building-a-Scalable-Web-Application/forum$fastcgi_script_name;
+        fastcgi_param  SCRIPT_FILENAME  /home/mikes/webapp$fastcgi_script_name;
 	allow all;
     }
 
