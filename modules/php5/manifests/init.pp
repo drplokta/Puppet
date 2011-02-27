@@ -6,7 +6,7 @@ class php5 {
 	]:
         ensure  => installed,
         notify  => Service["php-fastcgi"],
-        require => File["apt-get update"],
+        require => Exec["apt-get update"],
     }
     
     package { "php5-mongo":
@@ -22,6 +22,7 @@ class php5::dev {
 	class php5-dev {
 	    package { "php5-dev":
 	        ensure => installed,
+            require => Exec["apt-get update"],
 	    }
 	}
 }
