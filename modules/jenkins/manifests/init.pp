@@ -4,7 +4,7 @@ class jenkins {
 	
     package { "jenkins":
         ensure  => installed,
-		require => File["/etc/apt/sources.list.d/jenkins.list"],		
+		require => [File["/etc/apt/sources.list.d/mongodb.list"], Exec["apt-get update"]],		
     }
     
     file { "/etc/ufw/applications.d/jenkins":

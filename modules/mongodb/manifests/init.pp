@@ -4,7 +4,7 @@ class mongodb {
 	
     package { "mongodb-stable":
         ensure  => installed,
-		require => File["/etc/apt/sources.list.d/mongodb.list"],		
+		require => [File["/etc/apt/sources.list.d/mongodb.list"], Exec["apt-get update"]],		
     }
     
     file { "/etc/ufw/applications.d/mongodb-server":
