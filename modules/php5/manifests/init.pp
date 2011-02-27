@@ -6,7 +6,6 @@ class php5 {
 	]:
         ensure  => installed,
         notify  => Service["php-fastcgi"],
-        require => Exec["apt-get update"],
     }
     
     package { "php5-mongo":

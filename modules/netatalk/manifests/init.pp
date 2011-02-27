@@ -4,7 +4,7 @@ class netatalk {
     }
     
     file { "/etc/ufw/applications.d/netatalk":
-        source => "puppet:///modules/ufw/netatalk",
+        source => "puppet:///modules/netatalk/netatalk.ufw",
 		require => Package["ufw"],
         owner  => "root",
         group  => "root",

@@ -1,17 +1,13 @@
 class standard {
-	include apt
 	include packages
     include grub
     include ssh
-    include apt
 	include puppet-update
 	include users
 	include users::people
 	include users::admin
 	include vim
     include exim4
-    include ufw
-    include git
 }
 
 class webserver {
