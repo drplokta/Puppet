@@ -1,0 +1,4 @@
+[PostgreSQL]
+title=PostgreSQL database server
+description=PostgreSQL database server
+ports=5432/tcp

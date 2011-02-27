@@ -1,0 +1,30 @@
+log_format  withservname   '$host:$server_port $remote_addr $remote_user [$time_local] '
+                           '"$request" $status $body_bytes_sent '
+                           '"$http_referer" "$http_user_agent"';
+
+access_log  /var/log/nginx/access.log  withservname;
+
+server_tokens  off;
+
+server {
+    server_name  dev1.localdomain;
+    listen  80;
+
+keepalive_timeout    70;
+
+location / {
+    root   /home/mikes/Building-a-Scalable-Web-Application/forum;
+    index  index.html index.htm index.php;
+    allow all;
+    }
+
+    location ~ \.php$ {
+        include /etc/nginx/fastcgi_params;
+        fastcgi_pass  127.0.0.1:9000;
+        fastcgi_index index.php;
+        fastcgi_param  SCRIPT_FILENAME  /home/mikes/Building-a-Scalable-Web-Application/forum$fastcgi_script_name;
+	allow all;
+    }
+
+}
+

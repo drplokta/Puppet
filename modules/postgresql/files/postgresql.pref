@@ -1,0 +1,3 @@
+Package: libpq5
+Pin: release squeeze-backports
+Pin-Priority: 800

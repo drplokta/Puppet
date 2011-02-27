@@ -1,0 +1,4 @@
+[netatalk]
+title=netatalk server
+description=netatalk server
+ports=548/tcp

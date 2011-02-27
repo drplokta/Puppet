@@ -1,0 +1,4 @@
+[beanstalkd]
+title=Beanstalk queue server
+description=Beanstalk queue server
+ports=11300/tcp
