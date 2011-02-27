@@ -19,7 +19,7 @@ class beanstalkd {
 
     exec { "allow-beanstalkd":
         command => "/usr/sbin/ufw allow from $::network_eth0/$::netmask_eth0 to any app beanstalkd",
-        unless  => "/usr/sbin/ufw status | grep \"beanstalkd.*ALLOW.*Anywhere\\|Status: inactive\"",
+        unless  => "/usr/sbin/ufw status | grep \"beanstalkd.*ALLOW\\|Status: inactive\"",
         require => [Exec["enable-firewall"], File["/etc/ufw/applications.d/beanstalkd"]],
     }
     

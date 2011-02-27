@@ -19,8 +19,8 @@ class postgresql {
     }
 
     exec { "allow-postgresql":
-        command => "/usr/sbin/ufw allow PostgreSQL",
-        unless  => "/usr/sbin/ufw status | grep \"PostgreSQL.*ALLOW.*Anywhere\\|Status: inactive\"",
+        command => "/usr/sbin/ufw allow from $::network_eth0/$::netmask_eth0 to any app PostgreSQL",
+        unless  => "/usr/sbin/ufw status | grep \"PostgreSQL.*ALLOW\\|Status: inactive\"",
         require => [Exec["enable-firewall"], File["/etc/ufw/applications.d/postgresql-server"]],
     }
     
