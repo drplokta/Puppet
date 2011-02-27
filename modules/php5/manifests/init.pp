@@ -4,8 +4,9 @@ class php5 {
             "php5-suhosin", "php5-xdebug", "php5-pgsql",
             "php5-gd", "php5-mcrypt",
 	]:
-        ensure => installed,
-        notify => Service["php-fastcgi"],
+        ensure  => installed,
+        notify  => Service["php-fastcgi"],
+        require => File["apt-get update"],
     }
     
     package { "php5-mongo":

@@ -1,6 +1,7 @@
 class vim {
     package { "vim":
-        ensure => installed,
+        ensure  => installed,
+        require => Exec["apt-get update"],
     }
 
     #Set default editor

@@ -1,6 +1,7 @@
 class spawn-fcgi {
     package { "spawn-fcgi":
-        ensure => installed,
+        ensure  => installed,
+        require => Exec["apt-get update"],
     }
     
     package { "php-fastcgi":

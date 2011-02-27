@@ -3,7 +3,9 @@ class postgresql {
     
     package { ["postgresql-9.0", "postgresql-client-9.0"]:
         ensure  => installed,
-		require => [File["/etc/apt/preferences.d/postgresql.pref"],File["/etc/apt/sources.list"]],
+		require => [File["/etc/apt/preferences.d/postgresql.pref"],
+		    File["/etc/apt/sources.list"],
+		    Exec["apt-get update"]],
     }
     
     file { "/etc/ufw/applications.d/postgresql-server":
